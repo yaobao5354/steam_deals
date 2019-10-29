@@ -10,3 +10,5 @@
 Classes
 - Game
 - Genre
+- CLI
+- Scraper
