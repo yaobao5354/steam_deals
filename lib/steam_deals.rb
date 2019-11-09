@@ -4,6 +4,7 @@ require_relative "./steam_deals/game"
 require_relative "./steam_deals/scraper"
 
 require 'nokogiri'
+require 'open-uri'
 require 'pry'
 
 module SteamDeals
