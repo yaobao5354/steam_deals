@@ -3,7 +3,7 @@ class SteamDeals::Scraper
 
   def self.scrape_steam_page(category)
     page = Nokogiri::HTML(open("https://store.steampowered.com/"))
-    policy_array = []
+    deals_array = []
     page.css("div#"+category).each do |section|
       section.css("a").each do |within|
         deal_hash = {
