@@ -2,10 +2,11 @@ class SteamDeals::CLI
   def call
     puts "\nWelcome to Steam Deals!"
     get_current_categories
-    list_categories
+    list_category
     get_user_input
     create_deals_hash(@category)
-    display_games(@deals_hash)
+    create_games(@deals_hash)
+    list_games
     #list
   end
 
@@ -21,7 +22,7 @@ class SteamDeals::CLI
 
   def get_user_input
     puts "\nplease enter a category number"
-    @category = get.strip().to_i
+    @category = gets.strip().to_i
   end
 
   def create_deals_hash(category)
@@ -31,8 +32,14 @@ class SteamDeals::CLI
     @deals_hash = {:name => "game1", :genre => "genre1", :price =>"price1"}
   end
 
-  def display_games(@deals_hash)
-    game.new(@deals_hash)
-    game.list_games
+  def create_games(deals_hash)
+    SteamDeals::Game.new(@deals_hash)
   end
+
+  def list_games
+    SteamDeals::Game.all.each.with_index(1) do |game, index|
+      puts "#{index}. - #{game.name} - #{game.price} - #{game.genre}"
+    end
+  end
+
 end

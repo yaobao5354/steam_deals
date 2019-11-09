@@ -9,9 +9,8 @@ class SteamDeals::Game
     @@all << self
   end
 
-  def list_games
-    list = Game.all.each.with_index(1) do |game, index|
-      puts "#{index}. - #{game.name} - #{game.price} - #{game.genre}"
-    end 
+  def self.all
+    @@all
   end
+
 end
