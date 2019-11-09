@@ -27,7 +27,7 @@ class SteamDeals::CLI
 
   def create_deals_hash(category)
     categories = ["tab_newreleases_content", "tab_topsellers_content", "tab_upcoming_content", "tab_specials_content"]
-    #to_scrap = categories[@category - 1]
+    to_scrap = categories[@category - 1]
     #call scraper here with to scrap
     @deals_hash = {:name => "game1", :genre => "genre1", :price =>"price1"}
   end
