@@ -29,7 +29,10 @@ class SteamDeals::CLI
     #to_scrap = categories[@category - 1]
     #call scraper here with to scrap
     @deals_hash = {:name => "game1", :genre => "genre1", :price =>"price1"}
-  def display_games(deals_hash)
-    
+  end
+
+  def display_games(@deals_hash)
+    game.new(@deals_hash)
+    game.list_games
   end
 end
