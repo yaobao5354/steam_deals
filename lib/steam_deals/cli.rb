@@ -22,7 +22,13 @@ class SteamDeals::CLI
 
   def get_user_input
     puts "\nplease enter a category number"
-    @category = gets.strip().to_i
+    length = @categories.length
+    input = gets.strip().to_i
+    while input > length || input <= 0
+      puts "invalid selection"
+      input = gets.strip().to_i
+    end
+    @category = input
   end
 
   def create_deals_hash(category)
