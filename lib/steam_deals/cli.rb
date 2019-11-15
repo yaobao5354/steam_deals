@@ -34,10 +34,7 @@ class SteamDeals::CLI
   def create_deals_hash
     categories = ["tab_newreleases_content", "tab_topsellers_content", "tab_upcoming_content", "tab_specials_content"]
     scrape = categories[@category - 1]
-    #call scraper here with to scrap
     @deals_array = SteamDeals::Scraper.scrape_steam_page(scrape)
-    #binding.pry
-    #@deals_hash = {:name => "game1", :genre => "genre1", :price =>"price1"}
   end
 
   def create_games

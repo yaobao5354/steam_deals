@@ -11,7 +11,8 @@ class SteamDeals::Scraper
           :price => within.css("div.discount_final_price").text.strip,
           :genre => within.css("div.tab_item_top_tags").text.strip
         }
-        if !deals_array.include?(deal_hash)
+        if deal_hash[:name] == ""
+        elsif !deals_array.include?(deal_hash)
           deals_array << deal_hash
         end
       end
