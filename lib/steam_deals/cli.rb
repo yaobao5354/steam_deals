@@ -4,8 +4,8 @@ class SteamDeals::CLI
     get_current_categories
     list_category
     get_user_input
-    create_deals_hash(@category)
-    create_games(@deals_hash)
+    create_deals_hash
+    create_games
     list_games
     #list
   end
@@ -31,16 +31,17 @@ class SteamDeals::CLI
     @category = input
   end
 
-  def create_deals_hash(category)
+  def create_deals_hash
     categories = ["tab_newreleases_content", "tab_topsellers_content", "tab_upcoming_content", "tab_specials_content"]
     scrape = categories[@category - 1]
     #call scraper here with to scrap
-    deals_array = SteamDeals::Scraper.scrape_steam_page(scrape)
-    @deals_hash = {:name => "game1", :genre => "genre1", :price =>"price1"}
+    @deals_array = SteamDeals::Scraper.scrape_steam_page(scrape)
+    #binding.pry
+    #@deals_hash = {:name => "game1", :genre => "genre1", :price =>"price1"}
   end
 
-  def create_games(deals_hash)
-    SteamDeals::Game.new(@deals_hash)
+  def create_games
+    SteamDeals::Game.create_from_collection(@deals_array)
   end
 
   def list_games

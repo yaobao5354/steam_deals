@@ -13,4 +13,10 @@ class SteamDeals::Game
     @@all
   end
 
+  def self.create_from_collection(deals_array)
+    deals_array.each do |deal|
+      self.new(deal)
+    end
+  end 
+
 end

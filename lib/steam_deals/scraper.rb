@@ -15,6 +15,5 @@ class SteamDeals::Scraper
       end
     end
     deals_array
-    binding.pry
   end
 end
