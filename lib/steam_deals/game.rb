@@ -17,6 +17,6 @@ class SteamDeals::Game
     deals_array.each do |deal|
       self.new(deal)
     end
-  end 
+  end
 
 end
