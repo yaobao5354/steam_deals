@@ -13,6 +13,9 @@ class SteamDeals::Scraper
         }
         if deal_hash[:name] == ""
         elsif !deals_array.include?(deal_hash)
+          if deal_hash[:price] == ""
+            deal_hash[:price] = "$ Pending"
+          end
           deals_array << deal_hash
         end
       end
