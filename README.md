@@ -1,6 +1,6 @@
 # SteamDeals
 
-Find out whats on Steam deals
+Finds out whats on Steam home page deals 
 
 ## Installation
 
