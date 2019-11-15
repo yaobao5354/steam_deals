@@ -7,16 +7,13 @@ class SteamDeals::CLI
     create_deals_hash
     create_games
     list_games
-    #list
   end
 
   def get_current_categories
-    #to be scraped
     @categories = ["New and Trending", "Top Selling", "Popular Upcoming", "Specials"]
   end
 
   def list_category
-    #list category
     @categories.each.with_index(1){|category, index| puts "#{index}. #{category}"}
   end
 
@@ -42,6 +39,7 @@ class SteamDeals::CLI
   end
 
   def list_games
+    puts "\n#{@categories[@category-1]}"
     SteamDeals::Game.all.each.with_index(1) do |game, index|
       puts "#{index}. - #{game.name} - #{game.price} - #{game.genre}"
     end
